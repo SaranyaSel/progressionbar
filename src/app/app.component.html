@@ -1,0 +1,42 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<main>
+  <div style="text-align:center">
+    <h1>
+      Welcome to {{ title }}!
+    </h1>
+  </div>
+
+  <section>
+    <form action="" class="" [formGroup]="barForm" autocomplete="off">
+      <div class="error-text" *ngIf="errorMsg.message">
+        {{errorMsg.message}}
+      </div>
+      <div>
+        <div class="bar" *ngFor="let bar of bars;">
+          <div class="main">
+            <div [ngStyle]="{'width.%':bar,'background-color':bar>= limit?'red':'#87ceeb'}" class="inner">
+              <span>
+                {{bar}}
+                <!--current bar value-->
+                -
+                {{((bar/limit)*100) | number:'1.0-0'}}%
+                <!--percentage base on limit and current value-->
+                -
+                {{limit}}
+                <!--limit of the bar-->
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <select [ngClass]="selectStyle" formControlName="selectedbar" name="selectedbarname" id="selectedbarid"
+        (change)="onChange($event.target.value)">
+        <option disabled selected value>Please select</option>
+        <option *ngFor="let focusbar of bars;let i=index" [value]="i">#progress {{i+1}}</option>
+      </select>
+      <div class="listbtn" *ngFor="let item1 of buttons">
+        <button (click)="calculate(item1)">{{ item1 }}</button>
+      </div>
+    </form>
+  </section>
+</main>
