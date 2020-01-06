@@ -45,7 +45,6 @@ describe('AppComponent', () => {
 
     // create component and test fixture
     fixture = TestBed.createComponent(AppComponent);
-
     // get test component from the fixture
     component = fixture.componentInstance;
 
@@ -55,11 +54,15 @@ describe('AppComponent', () => {
 
 
   it('should create the app', async(() => {
-    const appfixture = TestBed.createComponent(AppComponent);
-    const app = appfixture.debugElement.componentInstance;
+    const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
 
+
+  it(`should have as title 'Welcome to Progress Bar!'`, () => {
+    const app = fixture.debugElement.componentInstance;
+    expect(app.title).toEqual('Welcome to Progress Bar!');
+  });
 
 
   it('Service injected via inject(...) and TestBed.get(...) should be the same instance',

@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   selectStyle: string;
   errorMsg = new ErrorMsg();
   constructor(private apiService: ApiservicesService) {
-    this.title = 'Progress Bar';
+    this.title = 'Welcome to Progress Bar!';
   }
   ngOnInit() {
     this.getBarData();
