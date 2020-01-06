@@ -22,14 +22,13 @@ export class AppComponent implements OnInit {
   selectStyle: string;
   errorMsg = new ErrorMsg();
   constructor(private apiService: ApiservicesService) {
+    this.title = 'Progress Bar';
   }
   ngOnInit() {
-    this.title = 'Progress Bar';
     this.getBarData();
     this.barForm = new FormGroup({
       selectedbar: new FormControl('', Validators.required)
     });
-
   }
 
   getBarData(): void {

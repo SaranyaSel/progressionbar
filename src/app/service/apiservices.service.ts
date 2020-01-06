@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ApiservicesService {
-  private url: string;
+  public url: string;
   constructor(private http: HttpClient) {
     this.url = 'http://pb-api.herokuapp.com/bars';
   }
